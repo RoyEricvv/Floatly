@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+  <head><meta charset="utf-8" /><title>Fixture: varios videos</title></head>
+  <body style="margin:0;font-family:sans-serif">
+    <h1>Página de prueba</h1>
+    <video id="main" width="960" height="540" playsinline></video>
+    <video id="thumb" width="120" height="68" muted playsinline></video>
+    <video id="secondary" width="480" height="270" playsinline></video>
+    <video id="blocked" width="480" height="270" disablepictureinpicture playsinline></video>
+    <iframe id="frame" width="500" height="300" style="border:0"></iframe>
+    <script src="synthetic-video.js"></script>
+    <script>
+      const iframePort = location.port;
+      document.getElementById('frame').src = `http://localhost:${iframePort}/iframe.html`;
+      window.ready = Promise.all([
+        makeSyntheticVideo(document.getElementById('main'), { color: '#2f6fed' }),
+        makeSyntheticVideo(document.getElementById('thumb'), { color: '#888' }),
+        makeSyntheticVideo(document.getElementById('blocked'), { color: '#a12020' }),
+      ]);
+      // "secondary" se queda sin datos (readyState 0).
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Video flotante</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="panel" aria-live="polite">
+      <header class="head">
+        <img src="../icons/icon-32.png" width="20" height="20" alt="" />
+        <h1>Video flotante</h1>
+        <span id="pip-state" class="pill" data-active="false">PiP inactivo</span>
+      </header>
+
+      <section id="other-tab" class="banner" hidden>
+        <span>Hay una ventana flotante abierta en otra pestaña.</span>
+        <button id="go-other" type="button" class="link">Ir al video original</button>
+      </section>
+
+      <section id="status" class="status">
+        <p id="status-text">Buscando videos…</p>
+        <p id="status-meta" class="meta"></p>
+      </section>
+
+      <label id="picker-wrap" class="picker" hidden>
+        <span>Video</span>
+        <select id="picker"></select>
+      </label>
+
+      <div class="actions">
+        <button id="toggle" type="button" class="primary" disabled>Abrir ventana flotante</button>
+        <div class="row">
+          <button id="play" type="button" disabled>Pausar</button>
+          <button id="reveal" type="button" disabled>Regresar al reproductor</button>
+        </div>
+      </div>
+
+      <p id="message" class="message" role="alert" hidden></p>
+
+      <footer class="foot">
+        <p id="caps" class="meta"></p>
+        <p class="meta">
+          Atajo: <kbd id="shortcut">—</kbd>
+          <button id="shortcut-config" type="button" class="link" hidden>Configurar</button>
+        </p>
+      </footer>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
